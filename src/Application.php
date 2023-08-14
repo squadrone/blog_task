@@ -30,6 +30,7 @@ class Application
     {
         $this->routeCollection = new RouteCollection();
         $this->databaseService = Database::getInstance();
+        session_start();
     }
 
     public static function getInstance(): Application {

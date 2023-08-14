@@ -14,3 +14,7 @@ header .navbar-brand span {
     font-size: 20pt !important;
     vertical-align: text-bottom;
 }
+
+.card h1 {
+    margin-bottom: 0;
+}

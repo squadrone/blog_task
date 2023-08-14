@@ -12,7 +12,8 @@ class BlogController extends BaseController
     {
         $app = Application::getInstance();
         $databaseConnection = $app->getDatabase()->connect(DATABASE_DSN);
-        echo $this->view('blog.overview.html.twig', ['homeURL' => '/']);
+        $homeURL = $app->generateURL('home');
+        echo $this->view('blog.overview.html.twig', ['homeURL' => 'overview']);
     }
 
     public function newArticle(Request $request): void
