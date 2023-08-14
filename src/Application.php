@@ -2,6 +2,7 @@
 
 namespace Project;
 
+use Project\Services\Database;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
@@ -11,6 +12,7 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class Application
 {
@@ -18,6 +20,7 @@ class Application
     private string $environment = 'prod';
     private RouteCollection $routeCollection;
     private UrlGenerator $urlGenerator;
+    private Database $databaseService;
 
     const CACHE_DIR = __DIR__.'/../cache/';
     const CONFIG_DIR = __DIR__.'/../config/';
@@ -26,6 +29,7 @@ class Application
     private function __construct()
     {
         $this->routeCollection = new RouteCollection();
+        $this->databaseService = Database::getInstance();
     }
 
     public static function getInstance(): Application {
@@ -33,6 +37,11 @@ class Application
             self::$instance = new self();
         }
         return self::$instance;
+    }
+
+    public function getDatabase(): Database
+    {
+        return $this->databaseService;
     }
 
     public function handleRequest(): void

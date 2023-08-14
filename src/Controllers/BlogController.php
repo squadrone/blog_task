@@ -2,6 +2,7 @@
 
 namespace Project\Controllers;
 
+use Project\Application;
 use Project\Services\BaseController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -9,6 +10,8 @@ class BlogController extends BaseController
 {
     public function overview(Request $request, int $page = 1): void
     {
+        $app = Application::getInstance();
+        $databaseConnection = $app->getDatabase()->connect(DATABASE_DSN);
         echo $this->view('blog.overview.html.twig', ['homeURL' => '/']);
     }
 
