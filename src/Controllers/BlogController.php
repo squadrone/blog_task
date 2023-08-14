@@ -9,16 +9,15 @@ class BlogController extends BaseController
 {
     public function overview(Request $request, int $page = 1): void
     {
-        echo 'Overview';
-        dump($page);
+        echo $this->view('blog.overview.html.twig', ['homeURL' => '/']);
     }
 
-    public function new_entry(Request $request): void
+    public function newArticle(Request $request): void
     {
         echo 'New Blog Entry';
     }
 
-    public function details(Request $request, int $id): void
+    public function articleDetails(Request $request, int $id): void
     {
         echo "Blog Entry {$id}";
     }

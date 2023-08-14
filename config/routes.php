@@ -10,11 +10,14 @@ $app->addRoute('home','/{page}', ['GET'],
         'page' => 1,
     ], ['page' => '\d+']);
 
-$app->addRoute('blog_details', '/blog/{id}', ['GET'],
+$app->addRoute('blog_details', '/article/{id}', ['GET'],
     [
         'controller' => 'BlogController',
-        'method' => 'details'
+        'method' => 'articleDetails'
     ], ['id' => '\d+']);
+
+$app->addRoute('new_article', '/article/add', ['GET'], ['controller' => 'BlogController', 'method' => 'newArticle']);
+$app->addRoute('imprint', '/imprint', ['GET'], ['controller' => 'BlogController', 'method' => 'imprint']);
 
 $app->addRoute('login', '/login', ['GET'], ['controller' => 'UserController', 'method' => 'login']);
 $app->addRoute('login_verify', '/login', ['POST'], ['controller' => 'UserController', 'method' => 'loginVerify']);

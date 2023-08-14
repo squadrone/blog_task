@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto Condensed', cursive !important;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+div.error {
+    background-color: #fff;
+    color:#ff0000;
+    margin-top:5px;
+}
+
+header .navbar-brand span {
+    font-size: 20pt !important;
+    vertical-align: text-bottom;
+}

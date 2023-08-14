@@ -10,13 +10,20 @@ class ErrorController extends BaseController
 {
     public function pageNotFound(Request $request, $message): void
     {
-        echo 'Page Not Found';
-        dump($message);
+        $this->showTemplate($message);
     }
 
     public function notAllowed(Request $request, $message): void
     {
-        echo 'Method Not Allowed';
-        dump($message);
+        $this->showTemplate($message);
+    }
+
+    private function showTemplate($message): void {
+        $app = Application::getInstance();
+        $homeURL = $app->generateURL('home');
+        echo $this->view('404.html.twig', [
+            'homeURL' => $homeURL,
+            'message' => $message
+        ]);
     }
 }

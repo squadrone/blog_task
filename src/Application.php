@@ -19,7 +19,9 @@ class Application
     private RouteCollection $routeCollection;
     private UrlGenerator $urlGenerator;
 
+    const CACHE_DIR = __DIR__.'/../cache/';
     const CONFIG_DIR = __DIR__.'/../config/';
+    const TEMPLATE_DIR = __DIR__.'/Views/';
 
     private function __construct()
     {
