@@ -1,0 +1,20 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Project\\": [
+        "src/"
+      ]
+    }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^6.3"
+  },
+  "require": {
+    "symfony/twig-bundle": "^6.3",
+    "symfony/routing": "^6.3",
+    "symfony/http-foundation": "^6.3",
+    "symfony/config": "^6.3",
+    "doctrine/orm": "^2.16",
+    "doctrine/dbal": "^3.6"
+  }
+}
